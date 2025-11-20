@@ -8,8 +8,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "RAWLINE Agency",
-  description: "Premium Agency Website",
+  title: "Lyra",
+  description: "The future of design",
 };
 
 export default function RootLayout({
