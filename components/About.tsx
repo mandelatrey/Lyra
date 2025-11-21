@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -14,10 +15,14 @@ export default function About() {
             <h2 className="text-3xl md:text-5xl font-medium leading-tight tracking-tight">
               Founded on the principles of quality, detail, and timeless design,{" "}
               <span className="text-gray-500">we create pieces that blend modern</span>{" "}
-              <span className="inline-flex items-center justify-center bg-accent text-black rounded-full w-8 h-8 mx-1 align-middle">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2L15 9L22 9L16 14L18 21L12 17L6 21L8 14L2 9L9 9L12 2Z" />
-                </svg>
+              <span className="inline-flex items-center justify-center bg-accent text-black rounded-full w-9 h-9 mx-1 align-middle p-2">
+                <Image
+                  src="/logos/lyra-symbol.svg"
+                  alt="Lyra Symbol"
+                  width={70}
+                  height={70}
+                  className="w-full h-full object-contain"
+                 />
               </span>{" "}
               <span className="text-gray-500">aesthetics with everyday functionality.</span>
             </h2>
