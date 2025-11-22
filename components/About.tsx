@@ -11,6 +11,7 @@ import { SplitText } from "gsap/SplitText";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 import AlbumStack from "./AlbumStack";
+import { motion } from "framer-motion";
 
 export default function About() {
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -59,8 +60,7 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-8 max-w-[65%]">
             <h2 ref={headingRef} className="text-3xl md:text-5xl font-medium leading-tight tracking-tight">
-              <span>Founded on the principles of vibes, grooves, and fun,</span>
-              <span className="text-gray-500">we create playlists that blend modern</span>{" "}
+              <span>Founded on the principles of vibes, and fun</span>{" "}
               <span className="inline-flex items-center justify-center bg-accent text-black rounded-full w-9 h-9 mx-1 align-middle p-2">
                 <Image
                   src="/logos/lyra-symbol.svg"
@@ -70,7 +70,8 @@ export default function About() {
                   className="w-full h-full object-contain"
                  />
               </span>{" "}
-              <span className="text-gray-500">sounds with contemporary tastes.</span>
+              <span className="text-gray-500"> Our playlists blend classic</span>{" "}
+              <span className="text-gray-500">rhythms with modern tastes.</span>
             </h2>
             
             <div className="mt-12 text-xs md:text-sm font-mono text-gray-400">
@@ -78,7 +79,13 @@ export default function About() {
             </div>
           </div>
 
-          <div className="md:col-span-4 flex flex-col justify-between h-full">
+          <motion.div 
+            initial={{ opacity: 0, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1.3, ease: [0.32, 1, 0.36, 1] }}
+            className="md:col-span-4 flex flex-col justify-between h-full"
+          >
              <div className="w-full aspect-square bg-gray-800 rounded-3xl mb-8 relative">
                 <AlbumStack />
              </div>
@@ -92,7 +99,7 @@ export default function About() {
                   Discover Music <ArrowUpRight className="w-3 h-3" />
                 </a>
              </div>
-             </div>
+             </motion.div>
           </div>
         </div>
     </section>
