@@ -6,7 +6,7 @@ interface WeatherData {
 
 export const useWeather = () => {
     const [weather, setWeather] = useState<WeatherData | null>(null);
-    const [timeString, setTimeString] = useState<string>('');
+    const [dateTime, setDateTime] = useState<{ time: string; date: string }>({ time: '', date: '' });
 
     useEffect(() => {
         // Function to update time
@@ -22,19 +22,21 @@ export const useWeather = () => {
             const hours = now.getHours().toString().padStart(2, '0');
             const minutes = now.getMinutes().toString().padStart(2, '0');
 
-            // Format: MON 2 DEC \ 09:12
-            return `${dayName} ${dayNum} ${monthName} \\ ${hours}:${minutes}`;
+            return {
+                date: `${dayName} ${dayNum} ${monthName}`,
+                time: `${hours}:${minutes}`
+            };
         };
 
         // Initial time set
-        const timeStr = updateTime();
+        setDateTime(updateTime());
 
         // Fetch weather
         const fetchWeather = async () => {
             try {
-                // Hardcoded coordinates for Jakarta (matching the design vibe)
-                const latitude = -6.2088;
-                const longitude = 106.8456;
+                // Coordinates for Kampala
+                const latitude = 0.3476;
+                const longitude = 32.5825;
                 const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
 
                 if (!apiKey) {
@@ -62,15 +64,16 @@ export const useWeather = () => {
         fetchWeather();
 
         // Update time every minute
-        setTimeString(timeStr);
         const interval = setInterval(() => {
-            setTimeString(updateTime());
+            setDateTime(updateTime());
         }, 60000);
 
         return () => clearInterval(interval);
     }, []);
 
-    const tempString = weather ? ` \\ ${weather.temp}°C` : '';
-
-    return `${timeString}${tempString}`;
+    return {
+        time: dateTime.time,
+        date: dateTime.date,
+        temp: weather ? weather.temp : null
+    };
 };

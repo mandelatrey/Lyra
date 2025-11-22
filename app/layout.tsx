@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -19,11 +21,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={`${outfit.variable} font-sans antialiased bg-[#0a0a0a] text-white`}
+        suppressHydrationWarning
       >
         <AuthProvider>
+          <CustomCursor />
+          <SmoothScroll />
           {children}
         </AuthProvider>
       </body>

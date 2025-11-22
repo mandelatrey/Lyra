@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function GridSection() {
   return (
-    <section className="w-full bg-black text-white py-12 px-4 md:px-8">
+    <section className="w-full bg-black text-white py-12 universal-padding">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-wrap items-center justify-between mb-12 border-b border-white/10 pb-4">

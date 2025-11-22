@@ -20,14 +20,14 @@ export default function CuratorWidget() {
 
   return (
     <div 
-      className="relative inline-block"
+      className="relative inline-block z-16"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex items-center gap-2 cursor-pointer group">
-        <span className="text-accent group-hover:text-white transition-colors duration-300">
+        <p className="text-accent group-hover:text-white transition-colors duration-300">
           Now Curating: [{curator.currentPlaylist}]
-        </span>
+        </p>
         <div className="w-6 h-6 rounded-full overflow-hidden border border-white/20 relative">
              <Image
                 src={curator.avatar}
