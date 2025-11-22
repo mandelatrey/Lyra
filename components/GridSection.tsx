@@ -1,26 +1,26 @@
 'use client';
 
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { Category, shopData, categories, ShopItem } from "./shopData";
+import { shopData, ShopItem } from "./shopData";
 import { useCursor } from "@/context/CursorContext";
 
 export default function GridSection() {
   return (
     <section className="w-full bg-black text-white py-24 universal-padding">
       <div className="max-w-7xl mx-auto space-y-32">
-        <SectionWithCarousel title="Discover" index="01" category="Discover" items={shopData["Discover"]} />
-        <SectionWithCarousel title="Charts" index="02" category="Charts" items={shopData["Charts"]} />
-        <SectionWithCarousel title="Editors" index="03" category="Editors" items={shopData["Editors"]} />
-        <SectionWithCarousel title="Shop" index="04" category="Shop" items={shopData["Shop"]} />
+        <SectionWithCarousel id="discover" title="Discover" index="01" category="Discover" items={shopData["Discover"]} />
+        <SectionWithCarousel id="charts" title="Charts" index="02" category="Charts" items={shopData["Charts"]} />
+        <SectionWithCarousel id="editors" title="Editors" index="03" category="Editors" items={shopData["Editors"]} />
+        <SectionWithCarousel id="merch" title="Shop" index="04" category="Shop" items={shopData["Shop"]} />
       </div>
     </section>
   );
 }
 
-const SectionWithCarousel = ({ title, index, category, items }: { title: string, index: string, category: string, items: ShopItem[] }) => {
+const SectionWithCarousel = ({ title, index, category, items, id }: { title: string, index: string, category: string, items: ShopItem[], id?: string }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const { setCursorVariant } = useCursor();
   // Duplicate items to create an "infinite" scroll feel
@@ -62,7 +62,7 @@ const SectionWithCarousel = ({ title, index, category, items }: { title: string,
   };
 
   return (
-    <div className="space-y-8">
+    <div id={id} className="space-y-8 scroll-mt-32">
       <div className="flex items-end justify-between border-b border-white/10 pb-4">
         <div className="flex items-baseline gap-4">
            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter">{title}</h2>

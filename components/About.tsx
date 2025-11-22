@@ -53,13 +53,13 @@ export default function About() {
     <section className="relative w-full bg-black text-white py-24 universal-padding border-t border-white/10">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-start mb-24 text-xs md:text-sm font-mono text-gray-400">
-          <span>[Why Even?]</span>
-          <span>well, scroll down</span>
+          <span>[ Why Even? ]</span>
+          <span>Scroll Down</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-8 max-w-[65%]">
-            <h2 ref={headingRef} className="text-3xl md:text-5xl font-medium leading-tight tracking-tight">
+          <div className="md:col-span-8 max-w-[70%] md:max-w-[65%] flex flex-col justify-center items-center md:items-start justify-self-center md:justify-self-start">
+            <h2 ref={headingRef} className="text-center md:text-left text-3xl md:text-5xl font-medium leading-tight tracking-tight">
               <span>Founded on the principles of vibes, and fun</span>{" "}
               <span className="inline-flex items-center justify-center bg-accent text-black rounded-full w-9 h-9 mx-1 align-middle p-2">
                 <Image
@@ -84,18 +84,18 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.3, ease: [0.32, 1, 0.36, 1] }}
-            className="md:col-span-4 flex flex-col justify-between h-full"
+            className="md:col-span-4 flex flex-col justify-between h-full w-[60%] md:w-full justify-self-center"
           >
-             <div className="w-full aspect-square bg-gray-800 rounded-3xl mb-8 relative">
+             <div className="aspect-square bg-gray-800 rounded-3xl mb-8 relative">
                 <AlbumStack />
              </div>
              
-             <div className="flex flex-col gap-8">
-                <p className="text-xs text-gray-400 leading-relaxed max-w-xs">
+             <div className="flex flex-col gap-8 items-center md:items-start justify-center md:justify-start">
+                <p className="text-xs text-gray-400 leading-relaxed max-w-xs text-center md:text-left">
                   We have something for every mood, every occasion, and every vibe.
                 </p>
                 
-                <a href="#" className="text-accent text-xs font-bold uppercase flex items-center gap-1 hover:underline">
+                <a href="#discover" className="text-accent text-xs font-bold uppercase flex items-center md:items-left gap-1 hover:underline">
                   Discover Music <ArrowUpRight className="w-3 h-3" />
                 </a>
              </div>

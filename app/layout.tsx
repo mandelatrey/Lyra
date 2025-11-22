@@ -5,6 +5,7 @@ import { AuthProvider } from "@/context/AuthContext";
 import { CursorProvider } from "@/context/CursorContext";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
+import Footer from "@/components/Footer";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
             <CustomCursor />
             <SmoothScroll />
             {children}
+            <Footer />
           </CursorProvider>
         </AuthProvider>
       </body>
