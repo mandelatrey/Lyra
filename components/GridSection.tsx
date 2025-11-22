@@ -1,118 +1,188 @@
-import { ArrowUpRight } from "lucide-react";
+'use client';
+
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { Category, shopData, categories, ShopItem } from "./shopData";
+import { useCursor } from "@/context/CursorContext";
 
 export default function GridSection() {
   return (
-    <section className="w-full bg-black text-white py-12 universal-padding">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="flex flex-wrap items-center justify-between mb-12 border-b border-white/10 pb-4">
-          <h2 className="text-2xl md:text-4xl font-bold tracking-tighter">
-            <span className="text-gray-500 text-sm align-top mr-2">[76]</span>
-            T-SHIRTS
-          </h2>
-          <h2 className="text-2xl md:text-4xl font-bold tracking-tighter">
-            THE ESSENTIALS
-          </h2>
-          <h2 className="text-2xl md:text-4xl font-bold tracking-tighter">
-            <span className="text-gray-500 text-sm align-top mr-2">[42]</span>
-            HOODIES
-          </h2>
-        </div>
-
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Item 1: Red Sempit */}
-          <div className="md:col-span-1 bg-gray-900 rounded-lg p-6 relative overflow-hidden group h-[400px]">
-             <div className="absolute top-6 left-6 z-10">
-                <p className="text-xs text-gray-400 mb-2">SEE FOR THIS ARTICLES <ArrowUpRight className="inline w-3 h-3" /></p>
-             </div>
-             <div className="absolute bottom-6 left-6 z-10">
-                <div className="flex gap-1">
-                   <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
-                   <span className="w-1.5 h-1.5 bg-gray-600 rounded-full"></span>
-                   <span className="w-1.5 h-1.5 bg-gray-600 rounded-full"></span>
-                </div>
-             </div>
-             <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 w-64 h-64 bg-red-600 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
-             <div className="absolute inset-0 flex items-center justify-center">
-                <h3 className="text-5xl font-bold leading-none text-right">
-                   Red<br/>Sempit<br/>1987
-                </h3>
-             </div>
-          </div>
-
-          {/* Item 2: Summer Articles (Center Large) */}
-          <div className="md:col-span-1 bg-gray-900 rounded-lg p-6 relative overflow-hidden group h-[400px]">
-             <div className="absolute top-6 left-6 z-10">
-                <span className="text-xs text-gray-500">[COLLECTIONS]</span>
-                <h3 className="text-2xl font-bold mt-2">Summer<br/>Articles</h3>
-             </div>
-             <div className="absolute bottom-6 right-6 z-10 text-right">
-                 <span className="text-accent font-handwriting text-xl rotate-[-10deg] block">Foshan</span>
-                 <span className="text-accent font-handwriting text-xl rotate-[-5deg] block">Shunde</span>
-             </div>
-             {/* Placeholder for product image */}
-             <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-48 h-48 bg-gray-800 rounded-full flex items-center justify-center">
-                   <span className="text-xs text-gray-500">Product Image</span>
-                </div>
-             </div>
-          </div>
-
-          {/* Item 3: Designed for Life */}
-          <div className="md:col-span-1 bg-gray-900 rounded-lg p-6 relative overflow-hidden group h-[400px] flex flex-col justify-between">
-             <div className="text-right">
-                <p className="text-xs text-gray-400 mb-2">SEE FOR THIS ARTICLES <ArrowUpRight className="inline w-3 h-3" /></p>
-             </div>
-             <div>
-                <h3 className="text-4xl font-bold leading-none mb-4">
-                   Designed for<br/>Life — Meets<br/>Elegance
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                   {["ALL", "HOODIES", "T-SHIRTS", "ACCESSORIES"].map(tag => (
-                      <span key={tag} className="text-[10px] border border-white/20 rounded-full px-2 py-1 hover:bg-white hover:text-black cursor-pointer transition-colors">
-                         {tag}
-                      </span>
-                   ))}
-                </div>
-             </div>
-          </div>
-
-          {/* Item 4: Bottom Left Image */}
-          <div className="md:col-span-1 bg-gray-800 rounded-lg h-[300px] relative overflow-hidden group">
-             <div className="absolute top-4 left-4 z-10">
-                <span className="text-[10px] bg-white/10 backdrop-blur-md px-2 py-1 rounded">[$316.00]</span>
-             </div>
-             <div className="absolute bottom-4 left-4 z-10">
-                 <p className="text-xs font-bold">The Porter Off-Race T-Shirt</p>
-                 <a href="#" className="text-[10px] text-accent flex items-center gap-1 mt-1">SHOP COLLECTION <ArrowUpRight className="w-2 h-2"/></a>
-             </div>
-             <div className="w-full h-full bg-gradient-to-t from-black/80 to-transparent absolute inset-0 z-0"></div>
-          </div>
-
-          {/* Item 5: Bottom Center Text */}
-          <div className="md:col-span-1 bg-gray-900 rounded-lg h-[300px] p-6 relative overflow-hidden flex flex-col justify-between">
-             <span className="text-xs text-gray-500">[COLLECTION]</span>
-             <h3 className="text-4xl font-bold tracking-tighter leading-none">
-                Explore<br/>Off-Race<br/>Autumn/
-             </h3>
-             <div className="text-right">
-                <span className="text-4xl font-bold text-gray-700">Winter</span>
-             </div>
-          </div>
-
-           {/* Item 6: Bottom Right Image */}
-           <div className="md:col-span-1 bg-gray-800 rounded-lg h-[300px] relative overflow-hidden group">
-             <div className="absolute top-4 left-4 z-10">
-                <span className="text-[10px] bg-white/10 backdrop-blur-md px-2 py-1 rounded">[$316.00]</span>
-             </div>
-             <div className="w-full h-full bg-gradient-to-t from-black/80 to-transparent absolute inset-0 z-0"></div>
-             <div className="absolute bottom-4 right-4 z-10">
-                <span className="text-accent text-xs">The Down Jacket</span>
-             </div>
-          </div>
-        </div>
+    <section className="w-full bg-black text-white py-24 universal-padding">
+      <div className="max-w-7xl mx-auto space-y-32">
+        <SectionWithCarousel title="Discover" index="01" category="Discover" items={shopData["Discover"]} />
+        <SectionWithCarousel title="Charts" index="02" category="Charts" items={shopData["Charts"]} />
+        <SectionWithCarousel title="Editors" index="03" category="Editors" items={shopData["Editors"]} />
+        <SectionWithCarousel title="Shop" index="04" category="Shop" items={shopData["Shop"]} />
       </div>
     </section>
   );
 }
+
+const SectionWithCarousel = ({ title, index, category, items }: { title: string, index: string, category: string, items: ShopItem[] }) => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const { setCursorVariant } = useCursor();
+  // Duplicate items to create an "infinite" scroll feel
+  const extendedItems = Array(10).fill(items).flat();
+
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const firstCard = container.firstElementChild as HTMLElement;
+      
+      if (firstCard) {
+         // Calculate width of one item including gap
+         const cardWidth = firstCard.offsetWidth;
+         const gap = 16; // gap-4 is 1rem = 16px
+         const itemTotalWidth = cardWidth + gap;
+         
+         // Calculate width of one original set of items
+         const singleSetWidth = itemTotalWidth * items.length;
+         
+         // Scroll to the start of the 5th set (middle of the 10 sets)
+         // This ensures we start perfectly aligned with the first item of a set
+         // and have plenty of scroll space in both directions
+         container.scrollLeft = singleSetWidth * 4;
+      }
+    }
+  }, [items]);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const firstCard = container.firstElementChild as HTMLElement;
+      const scrollAmount = firstCard ? (firstCard.offsetWidth + 16) : 400;
+      
+      container.scrollBy({ 
+        left: direction === 'left' ? -scrollAmount : scrollAmount, 
+        behavior: 'smooth' 
+      });
+    }
+  };
+
+  return (
+    <div className="space-y-8">
+      <div className="flex items-end justify-between border-b border-white/10 pb-4">
+        <div className="flex items-baseline gap-4">
+           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter">{title}</h2>
+           <span className="text-sm text-gray-500">[{index}]</span>
+        </div>
+        
+        <div className="flex gap-2">
+          <button 
+            onClick={() => scroll('left')}
+            onMouseEnter={() => setCursorVariant('hidden')}
+            onMouseLeave={() => setCursorVariant('default')}
+            className="p-2 rounded-full border border-white/20 hover:bg-white hover:text-black transition-colors"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button 
+            onClick={() => scroll('right')}
+            onMouseEnter={() => setCursorVariant('hidden')}
+            onMouseLeave={() => setCursorVariant('default')}
+            className="p-2 rounded-full border border-white/20 hover:bg-white hover:text-black transition-colors"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+
+      <div 
+        ref={scrollContainerRef}
+        className="flex gap-4 overflow-x-auto pb-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] -mx-4 px-4 md:mx-0 md:px-0"
+      >
+        {extendedItems.map((item, idx) => (
+          <div key={`${item.id}-${idx}`} className="min-w-[85vw] md:min-w-[350px] snap-start">
+            <GridCard item={item} category={category} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Reusable Card Component
+const GridCard = ({ item, category }: { item: ShopItem; category: string }) => {
+  const { setCursorVariant, setCursorText } = useCursor();
+
+  const handleMouseEnter = () => {
+    if (category === "Shop") {
+      setCursorVariant("shop");
+      setCursorText("SHOP");
+    } else {
+      setCursorVariant("listen");
+      setCursorText("LISTEN");
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setCursorVariant("default");
+    setCursorText("");
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`bg-gray-900 rounded-2xl relative overflow-hidden group h-[400px] w-full cursor-none ${
+        item.type === "simple" ? "h-[300px]" : ""
+      } ${item.colSpan}`}
+    >
+       {/* Top Left Badge */}
+        <div className="absolute top-4 left-4 z-20">
+          {(item.price || item.subtitle) ? (
+            <span className="text-[10px] bg-white/10 backdrop-blur-md px-2 py-1 rounded uppercase tracking-wider font-medium text-white">
+              {item.price || item.subtitle}
+            </span>
+          ) : (
+             <span className="text-[10px] bg-white/10 backdrop-blur-md px-2 py-1 rounded uppercase tracking-wider font-medium text-white">
+                {item.type === 'feature' ? 'FEATURE' : 'NEW'}
+             </span>
+          )}
+        </div>
+
+        {/* Background Image */}
+        {item.image && (
+          <Image 
+            src={item.image} 
+            alt="Background" 
+            fill 
+            className="object-cover transition-transform duration-700 group-hover:scale-105 z-0" 
+          />
+        )}
+        
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
+
+        {/* Bottom Content */}
+        <div className="absolute bottom-4 left-4 z-20 right-4">
+          <h3 className="text-lg font-bold leading-tight mb-2 text-white w-full">
+            {item.title}
+          </h3>
+          
+          {item.tags && (
+            <div className="flex flex-wrap gap-2 mb-3">
+              {item.tags.map(tag => (
+                <span key={tag} className="text-[10px] border border-white/20 rounded-full px-2 py-1 hover:bg-white hover:text-black transition-colors cursor-default text-white">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <div className="flex items-center gap-2 text-[10px] text-accent font-bold uppercase tracking-wider">
+            {category === "Shop" ? "BUY NOW" : "LISTEN"} <ArrowUpRight className="w-3 h-3" />
+          </div>
+        </div>
+
+        {/* Extra Content */}
+        {item.extra}
+    </motion.div>
+  );
+};

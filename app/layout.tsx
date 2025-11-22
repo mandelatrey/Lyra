@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
+import { CursorProvider } from "@/context/CursorContext";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 
@@ -27,9 +28,11 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <AuthProvider>
-          <CustomCursor />
-          <SmoothScroll />
-          {children}
+          <CursorProvider>
+            <CustomCursor />
+            <SmoothScroll />
+            {children}
+          </CursorProvider>
         </AuthProvider>
       </body>
     </html>

@@ -1,11 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring, Variants } from 'framer-motion';
 import Image from 'next/image';
+import { useCursor } from '@/context/CursorContext';
 
 export default function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false);
+  const { cursorVariant, cursorText } = useCursor();
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -34,6 +36,32 @@ export default function CustomCursor() {
     };
   }, [mouseX, mouseY, isVisible]);
 
+  const variants: Variants = {
+    default: {
+      height: 56,
+      width: 56,
+      backgroundColor: "rgba(209, 213, 219, 0.7)", // gray-300/70
+      mixBlendMode: "normal",
+    },
+    listen: {
+      height: 100,
+      width: 100,
+      backgroundColor: "rgba(255, 255, 255, 1)",
+      mixBlendMode: "difference",
+    },
+    shop: {
+      height: 100,
+      width: 100,
+      backgroundColor: "rgba(255, 255, 255, 1)",
+      mixBlendMode: "difference",
+    },
+    hidden: {
+      opacity: 0,
+      height: 0,
+      width: 0,
+    }
+  };
+
   if (!isVisible) return null;
 
   return (
@@ -44,17 +72,35 @@ export default function CustomCursor() {
         translateX: '-50%',
         translateY: '-50%',
       }}
-      className="fixed top-0 left-0 z-[100] pointer-events-none flex items-center justify-center"
+      variants={variants}
+      animate={cursorVariant}
+      transition={{ type: "spring", stiffness: 500, damping: 28 }}
+      className="fixed top-0 left-0 z-[100] pointer-events-none flex items-center justify-center rounded-full overflow-hidden"
     >
-      <span className="inline-flex items-center justify-center bg-gray-300/70 text-black rounded-full size-14 p-3">
-        <Image
-          src="/logos/lyra-symbol.svg"
-          alt="Cursor"
-          width={50}
-          height={50}
-          className="w-full h-full object-contain"
-        />
-      </span>
+      <motion.div 
+        className="relative w-full h-full flex items-center justify-center"
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
+      >
+         {cursorVariant === 'default' ? (
+            <Image
+              src="/logos/lyra-symbol.svg"
+              alt="Cursor"
+              width={50}
+              height={50}
+              className="w-3/4 h-3/4 object-contain"
+            />
+         ) : (
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              className="text-black font-mono font-bold text-sm uppercase tracking-widest"
+            >
+              {cursorText || (cursorVariant === 'shop' ? 'BUY NOW' : 'LISTEN')}
+            </motion.span>
+         )}
+      </motion.div>
     </motion.div>
   );
 }
