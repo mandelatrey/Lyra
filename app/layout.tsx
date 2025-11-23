@@ -6,6 +6,7 @@ import { CursorProvider } from "@/context/CursorContext";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next"
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
         className={`${outfit.variable} font-sans antialiased bg-[#0a0a0a] text-white`}
         suppressHydrationWarning
       >
+         <Analytics />
         <AuthProvider>
           <CursorProvider>
             <CustomCursor />
