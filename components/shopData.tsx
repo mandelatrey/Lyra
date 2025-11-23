@@ -26,7 +26,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       colSpan: "md:col-span-1",
       type: "collection",
       imageColor: "bg-purple-600",
-      image: "/grid/discover-weekly.png",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/discover-weekly.png",
       extra: (
         <div className="absolute bottom-6 right-6 z-10 text-right">
            <span className="text-accent font-handwriting text-xl rotate-[-10deg] block">Fresh</span>
@@ -41,7 +41,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       type: "product", // Using product style for visual variety
       imageColor: "bg-indigo-500",
       price: "NEW",
-      image: "/grid/hidden-gems.png",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/hidden-gems.png",
     },
     {
       id: "d3",
@@ -50,7 +50,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       type: "feature",
       imageColor: "bg-gray-900",
       tags: ["JAZZ", "LO-FI", "NEO-SOUL"],
-      image: "/grid/smoof.png",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/smoof.png",
     },
     {
       id: "d4",
@@ -59,7 +59,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       colSpan: "md:col-span-1",
       type: "simple",
       imageColor: "bg-amber-700",
-      image: "/grid/morning-coffee.png",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/morning-coffee.png",
     },
     {
       id: "d5",
@@ -68,7 +68,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       colSpan: "md:col-span-1",
       type: "collection",
       imageColor: "bg-blue-900",
-      image: "/grid/night-drive.jpg",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/night-drive.jpg",
     },
     {
       id: "d6",
@@ -77,7 +77,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       colSpan: "md:col-span-1",
       type: "simple",
       imageColor: "bg-teal-800",
-      image: "/grid/focus.jpg",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/focus.jpg",
     }
   ],
   "Charts": [
@@ -88,7 +88,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       type: "product",
       imageColor: "bg-green-600",
       price: "#1",
-      image: "/grid/the-charts.png",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/the-charts.png",
     },
     {
       id: "c2",
@@ -97,7 +97,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       colSpan: "md:col-span-1",
       type: "collection",
       imageColor: "bg-pink-600",
-      image: "/grid/viral.jpg",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/viral.jpg",
     },
     {
       id: "c3",
@@ -106,7 +106,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       type: "feature",
       imageColor: "bg-gray-900",
       tags: ["TOKYO", "NYC", "LONDON"],
-      image: "/grid/radar.jpg",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/radar.jpg",
     },
     {
       id: "c4",
@@ -115,7 +115,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       colSpan: "md:col-span-1",
       type: "simple",
       imageColor: "bg-rose-800",
-      image: "/grid/indie.jpg",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/indie.jpg",
     },
     {
       id: "c5",
@@ -124,7 +124,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       colSpan: "md:col-span-1",
       type: "collection",
       imageColor: "bg-cyan-700",
-      image: "/grid/bass.jpg",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/bass.jpg",
     },
     {
       id: "c6",
@@ -133,7 +133,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       colSpan: "md:col-span-1",
       type: "simple",
       imageColor: "bg-orange-800",
-      image: "/grid/hip.jpg",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/hip.jpg",
     }
   ],
   "Editors": [
@@ -144,7 +144,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       type: "product",
       imageColor: "bg-fuchsia-600",
       price: "STAFF",
-      image: "/grid/sarah.jpg",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/sarah.jpg",
     },
     {
       id: "e2",
@@ -153,7 +153,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       colSpan: "md:col-span-1",
       type: "collection",
       imageColor: "bg-violet-600",
-      image: "/grid/soundlab.png",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/soundlab.png",
     },
     {
       id: "e3",
@@ -162,7 +162,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       type: "feature",
       imageColor: "bg-gray-900",
       tags: ["INTERVIEWS", "DEEP DIVES", "B-SIDES"],
-      image: "/grid/artist.jpg",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/artist.jpg",
     },
     {
       id: "e4",
@@ -171,7 +171,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       colSpan: "md:col-span-1",
       type: "simple",
       imageColor: "bg-emerald-800",
-      image: "/grid/fourtet.jpg",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/fourtet.jpg",
     },
     {
       id: "e5",
@@ -180,7 +180,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       colSpan: "md:col-span-1",
       type: "collection",
       imageColor: "bg-stone-700",
-      image: "/grid/vinyl.jpg",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/vinyl.jpg",
     },
     {
       id: "e6",
@@ -189,7 +189,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       colSpan: "md:col-span-1",
       type: "simple",
       imageColor: "bg-red-900",
-      image: "/grid/xtics2.png",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/xtics2.png",
     }
   ],
   "Shop": [
@@ -200,7 +200,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       type: "product",
       imageColor: "bg-neutral-100",
       price: "$35.00",
-      image: "/grid/merch-1.png",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/merch-1.png",
     },
     {
       id: "m2",
@@ -209,7 +209,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       colSpan: "md:col-span-1",
       type: "collection",
       imageColor: "bg-zinc-800",
-      image: "/grid/listeningkit.png",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/listeningkit.png",
       extra: (
         <div className="absolute bottom-6 right-6 z-10 text-right">
            <span className="text-accent font-handwriting text-xl rotate-[-10deg] block">High</span>
@@ -224,7 +224,7 @@ export const shopData: Record<Category, ShopItem[]> = {
       type: "feature",
       imageColor: "bg-gray-900",
       tags: ["COLORED", "SIGNED", "RARE"],
-      image: "/grid/vinyl-2.png",
+      image: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/vinyl-2.png",
     },
   ]
 };

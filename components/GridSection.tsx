@@ -89,15 +89,21 @@ const SectionWithCarousel = ({ title, index, category, items, id }: { title: str
         </div>
       </div>
 
-      <div 
-        ref={scrollContainerRef}
-        className="flex gap-4 overflow-x-auto pb-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] -mx-4 px-4 md:mx-0 md:px-0"
-      >
-        {extendedItems.map((item, idx) => (
-          <div key={`${item.id}-${idx}`} className="min-w-[85vw] md:min-w-[350px] snap-start">
-            <GridCard item={item} category={category} />
-          </div>
-        ))}
+      <div className="overflow-hidden -mx-4 px-4 md:mx-0 md:px-0">
+        <div 
+          ref={scrollContainerRef}
+          className="flex gap-4 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide"
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+          }}
+        >
+          {extendedItems.map((item, idx) => (
+            <div key={`${item.id}-${idx}`} className="min-w-[85vw] md:min-w-[350px] snap-start">
+              <GridCard item={item} category={category} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

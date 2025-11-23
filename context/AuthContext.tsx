@@ -29,7 +29,7 @@ const ADMIN_USER: User = {
   id: "admin-001",
   name: "DJ Octo",
   email: "admin@lyra.com",
-  avatar: "/avatars/dj_octopus.png",
+  avatar: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/dj_octopus.png",
   role: "admin",
   location: "Kampala, Uganda",
   currentPlaylist: "Abyssal Grooves",
@@ -55,7 +55,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             id: "user-" + Math.random().toString(36).substr(2, 9),
             name: "New User",
             email,
-            avatar: "/hero/webmodel2.png", // Default
+            avatar: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/webmodel2.png", // Default
             role: "editor",
             location: "Unknown",
             currentPlaylist: "My Mix",
@@ -69,7 +69,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       id: "user-" + Math.random().toString(36).substr(2, 9),
       name,
       email,
-      avatar: "/hero/webmodel2.png", // In a real app, they'd upload one
+      avatar: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/webmodel2.png", // In a real app, they'd upload one
       role: "editor",
       location,
       currentPlaylist: "Fresh Finds",

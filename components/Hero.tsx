@@ -128,7 +128,7 @@ export default function Hero() {
                }}
              >
                <Image
-                src="/hero/webmodel2.png"
+                src="https://yku11mgbqox49cbl.public.blob.vercel-storage.com/webmodel2.png"
                 alt="Model"
                 fill
                 style={{ objectFit: "contain", objectPosition: "center bottom" }}
@@ -158,7 +158,7 @@ export default function Hero() {
               <span className="w-full h-full">
                 <span className="flex items-center justify-center w-8 h-8 pl-2">
                   <Image
-                    src="/logos/lyra-symbol.svg"
+                    src="https://yku11mgbqox49cbl.public.blob.vercel-storage.com/lyra-symbol.svg"
                     alt="Lyra Symbol"
                     width={50}
                     height={50}

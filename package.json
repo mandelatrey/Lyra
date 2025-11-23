@@ -6,11 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "upload:blob": "node scripts/upload-to-blob.js",
+    "update:urls": "node scripts/update-component-urls.js"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@vercel/analytics": "^1.5.0",
+    "@vercel/blob": "^2.0.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.24",
     "gsap": "^3.13.0",
@@ -27,6 +30,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "dotenv": "^17.2.3",
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
     "tailwindcss": "^4",

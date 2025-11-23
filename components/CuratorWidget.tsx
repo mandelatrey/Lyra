@@ -12,7 +12,7 @@ export default function CuratorWidget() {
   // Fallback to a default if no user (though AuthContext should provide one)
   const curator = user || {
     name: "Guest Curator",
-    avatar: "/hero/webmodel2.png",
+    avatar: "https://yku11mgbqox49cbl.public.blob.vercel-storage.com/webmodel2.png",
     location: "Unknown",
     currentPlaylist: "Guest Mix",
     status: "offline"

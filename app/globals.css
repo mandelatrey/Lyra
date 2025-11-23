@@ -43,4 +43,13 @@ html {
   .universal-padding {
     @apply px-6 md:px-12;
   }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
